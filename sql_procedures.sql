@@ -1440,3 +1440,11 @@ RETURN
 END
 GO
 
+CREATE FUNCTION [dbo].[fn_valid_from_seconds] (@some_date datetime)
+RETURNS datetime
+AS
+BEGIN 
+	RETURN DATEADD(SECOND,-1,CAST(DATEADD(DAY,1,cast(@some_date as date)) as datetime)) ;
+END;
+
+
